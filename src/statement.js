@@ -10,14 +10,14 @@ Statement.prototype = {
     let dateString = `${day}/${month}/${date.getYear() + 1900 }`
     this.transactions.push({
       date: date,
-      amount: amount,
+      amount: `${amount}.00`,
       type: type,
-      balance: balance,
+      balance: `${balance}.00`,
       dateString: dateString });
+    this.sortByDate();
   },
 
   print: function() {
-    this.sortByDate();
     let printString = 'date || credit || debit || balance\n'
     for(var i = 0; i < this.transactions.length; i++) {
       this.transactions[i].type === 'credit' ?

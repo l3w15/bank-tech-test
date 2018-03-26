@@ -11,7 +11,7 @@ describe('Statement', function() {
   describe('the .update function', function() {
     it('updates credits and debits', function() {
       statement.update(500, 'credit', 2000);
-      expect(statement.transactions[0].amount).toEqual(500);
+      expect(statement.transactions[0].amount).toEqual('500.00');
       expect(statement.transactions[0].type).toEqual('credit');
     })
   });
@@ -21,7 +21,7 @@ describe('Statement', function() {
       statement.update(2000, 'credit', 2000, new Date('2018-02-01'));
       statement.update(500, 'debit', 1500, new Date('2018-03-20'));
       expect(statement.print()).toEqual(
-        "date || credit || debit || balance\n20/03/2018 || || 500 || 1500\n01/02/2018 || 2000 || || 2000\n")
+        "date || credit || debit || balance\n20/03/2018 || || 500.00 || 1500.00\n01/02/2018 || 2000.00 || || 2000.00\n")
     });
   });
 
