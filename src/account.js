@@ -1,8 +1,8 @@
-function Account(statementConstructor) {
+function Account(StatementConstructor) {
   this.INITIAL_BALANCE = 0;
   this.MINIMUM_BALANCE = 0;
   this.balance = this.INITIAL_BALANCE;
-  this.statement = new statementConstructor();
+  this.statement = new StatementConstructor();
 }
 
 Account.prototype = {

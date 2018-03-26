@@ -1,6 +1,7 @@
 describe('Statement', () => {
+  let statement;
   beforeEach(() => {
-    const statement = new Statement();
+    statement = new Statement();
   });
 
   it('is created with a transactions Array', () => {
@@ -29,6 +30,12 @@ describe('Statement', () => {
       statement.update(500, 'debit', 1500, new Date('2018-04-20'));
       statement.sortByDate();
       expect(statement.transactions[0].dateString).toEqual('20/04/2018');
+    });
+  });
+
+  describe('the .getDateString function', () => {
+    it('returns a UK date formatted string from a JS date format', () => {
+      expect(statement.getDateString(new Date('2018-02-01'))).toEqual('01/02/2018');
     });
   });
 });
