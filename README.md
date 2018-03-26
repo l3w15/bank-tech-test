@@ -1,2 +1,2 @@
-# bank-tech-test
+# Bank tech test
 Makers academy practice tech test
