@@ -2,16 +2,20 @@ function Account(statementConstructor) {
   this.INITIAL_BALANCE = 0;
   this.balance = this.INITIAL_BALANCE;
   this.statement = new statementConstructor;
+  this.date;
 }
 
 Account.prototype = {
-  deposit: function(amount, date) {
-    this.balance += amount;
-    this.statement.update(amount, date, 'credit', this.balance);
+  deposit: function(amount) {
+    this.transact(amount, 'credit');
   },
 
-  withdraw: function(amount, date) {
-    this.balance -= amount;
-    this.statement.update(amount, date, 'debit', this.balance);
+  withdraw: function(amount) {
+    this.transact(amount, 'debit');
+  },
+
+  transact: function(amount, transactionType) {
+    transactionType === 'credit' ? this.balance += amount : this.balance -= amount;
+    this.statement.update(amount, transactionType, this.balance);
   }
 }

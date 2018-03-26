@@ -10,31 +10,27 @@ describe('Statement', function() {
 
   describe('the .update function', function() {
     it('updates credits and debits', function() {
-      statement.update(500, '01/02/2018', 'credit', 2000);
-      expect(statement.transactions).toContain({
-        date: '01/02/2018',
-        amount: 500,
-        type: 'credit',
-        balance: 2000
-      })
+      statement.update(500, 'credit', 2000);
+      expect(statement.transactions[0].amount).toEqual(500);
+      expect(statement.transactions[0].type).toEqual('credit');
     })
   });
 
   describe('the .print function', function() {
     it('prints the current statement', function() {
-      statement.update(2000, '01/02/2018', 'credit', 2000);
-      statement.update(500, '04/02/2018', 'debit', 1500);
-      expect(statement.print()).toEqual("date || credit || debit || balance\n04/02/2018 || || 500 || 1500\n01/02/2018 || 2000 || || 2000\n")
+      statement.update(2000, 'credit', 2000, new Date('2018-02-01'));
+      statement.update(500, 'debit', 1500, new Date('2018-03-20'));
+      expect(statement.print()).toEqual(
+        "date || credit || debit || balance\n20/03/2018 || || 500 || 1500\n01/02/2018 || 2000 || || 2000\n")
     });
   });
 
   describe('the .sortByDate function', function() {
     it('orders the transactions array by date', function() {
-      statement.update(500, '01/02/2018', 'credit', 2000);
-      statement.update(500, '04/02/2018', 'debit', 1500);
-      console.log(statement.sortByDate);
+      statement.update(500, 'credit', 2000, new Date('2018-02-01'));
+      statement.update(500, 'debit', 1500, new Date('2018-04-20'));
       statement.sortByDate();
-      expect(statement.transactions[0].date).toEqual('04/02/2018');
+      expect(statement.transactions[0].dateString).toEqual('20/04/2018');
     });
   });
 });
