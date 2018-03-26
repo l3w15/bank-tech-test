@@ -10,7 +10,7 @@ describe('Statement', function() {
 
   describe('the .update function', function() {
     it('updates credits and debits', function() {
-      statement.update(01022018, 500, 'credit', 2000);
+      statement.update(500, 01022018, 'credit', 2000);
       expect(statement.creditsAndDebits).toEqual([{
         date: 01022018,
         amount: 500,

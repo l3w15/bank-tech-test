@@ -5,11 +5,13 @@ function Account(statementConstructor) {
 }
 
 Account.prototype = {
-  deposit: function(amount) {
+  deposit: function(amount, date) {
     this.balance += amount;
+    this.statement.update(amount, date, 'credit', this.balance);
   },
 
-  withdraw: function(amount) {
+  withdraw: function(amount, date) {
     this.balance -= amount;
+    this.statement.update(amount, date, 'debit', this.balance);
   }
 }

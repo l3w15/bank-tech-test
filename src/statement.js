@@ -3,7 +3,7 @@ function Statement() {
 };
 
 Statement.prototype = {
-  update: function(date, amount, type, balance) {
+  update: function(amount, date, type, balance) {
     this.creditsAndDebits.push({
       date: date,
       amount: amount,

@@ -6,7 +6,7 @@ Makers academy practice tech test
 ```
 As a client
 So that I do not have to keep all my money in cash
-I would like to have an account
+I would like to have an account with a balance
 ```
 
 ```
