@@ -1,0 +1,3 @@
+function Statement() {
+  this.creditsAndDebits = [];
+}

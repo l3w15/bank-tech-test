@@ -1,13 +1,17 @@
-describe("Account", function() {
+describe('Account', function() {
   var acc;
 
   beforeEach(function() {
-    acc = new Account();
+    acc = new Account(Statement);
     acc.balance = acc.INITIAL_BALANCE;
   });
 
   it('should be created with a balance', function() {
     expect(acc.balance).toEqual(acc.INITIAL_BALANCE);
+  });
+
+  it('should be created with a statement object', function() {
+    expect(typeof(acc.statement)).toBe('object');
   });
 
   describe('the .deposit function', function() {
