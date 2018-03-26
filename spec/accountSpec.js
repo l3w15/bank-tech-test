@@ -22,7 +22,7 @@ describe('Account', function() {
 
     it('should update the statement with a credit', function() {
       acc.deposit(500, 21022018);
-      expect(acc.statement.creditsAndDebits).toEqual([{
+      expect(acc.statement.transactions).toEqual([{
         date: 21022018,
         amount: 500,
         type: 'credit',
@@ -39,7 +39,7 @@ describe('Account', function() {
 
     it('should update the statement with a debit', function() {
       acc.withdraw(500, 21022018);
-      expect(acc.statement.creditsAndDebits).toEqual([{
+      expect(acc.statement.transactions).toEqual([{
         date: 21022018,
         amount: 500,
         type: 'debit',
@@ -47,6 +47,4 @@ describe('Account', function() {
       }]);
     });
   });
-
-
 });
