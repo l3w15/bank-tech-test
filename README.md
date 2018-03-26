@@ -8,7 +8,7 @@ $ open SpecHelper.html
 ```
 The app can then be run in the browser console, for example:
 
-[![Screen_Shot_2018-03-26_at_21.39.40.png](https://s6.postimg.org/5v3illca9/Screen_Shot_2018-03-26_at_21.39.40.png)](https://postimg.org/image/sjspl5tnx/)
+[![Screen_Shot_2018-03-26_at_21.39.40.png](https://s6.postimg.org/rvjv1us9t/Screen_Shot_2018-03-26_at_21.39.40.png)](https://postimg.org/image/upn0faufx/)
 
 ## Approach and Structure
 
