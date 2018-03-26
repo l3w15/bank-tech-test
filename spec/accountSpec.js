@@ -16,4 +16,11 @@ describe("Account", function() {
       expect(acc.balance).toEqual(500);
     });
   });
+
+  describe('the .withdraw function', function() {
+    it('should credit the  account balance with the withdrawal amount', function() {
+      acc.withdraw(500);
+      expect(acc.balance).toEqual(-500);
+    });
+  });
 });

@@ -8,5 +8,7 @@ Account.prototype = {
     this.balance += amount;
   },
 
-
+  withdraw: function(amount) {
+    this.balance -= amount;
+  }
 }
