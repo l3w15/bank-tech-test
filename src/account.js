@@ -2,33 +2,32 @@ function Account(statementConstructor) {
   this.INITIAL_BALANCE = 0;
   this.MINIMUM_BALANCE = 0;
   this.balance = this.INITIAL_BALANCE;
-  this.statement = new statementConstructor;
-  this.date;
+  this.statement = new statementConstructor();
 }
 
 Account.prototype = {
-  deposit: function(amount) {
+  deposit(amount) {
     if (this.isPositive(amount)) {
       this.transact(amount, 'credit');
     }
   },
 
-  withdraw: function(amount) {
+  withdraw(amount) {
     if (this.isPositive(amount) && this.balanceCheck(amount)) {
       this.transact(amount, 'debit');
     }
   },
 
-  transact: function(amount, transactionType) {
+  transact(amount, transactionType) {
     transactionType === 'credit' ? this.balance += amount : this.balance -= amount;
     this.statement.update(amount, transactionType, this.balance);
   },
 
-  isPositive: function(amount) {
-    return amount > 0 ? true : false;
+  isPositive(amount) {
+    return amount > 0;
   },
 
-  balanceCheck: function(amount) {
-    return (this.balance - amount) > this.MINIMUM_BALANCE ? true : false;
-  }
-}
+  balanceCheck(amount) {
+    return (this.balance - amount) > this.MINIMUM_BALANCE;
+  },
+};
